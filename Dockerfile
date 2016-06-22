@@ -7,8 +7,8 @@ COPY skyEye.zip /lib/skyEye/skyEye.zip
 COPY kafka_2.11-0.9.0.0.tgz /lib/skyEye/kafka_2.11-0.9.0.0.tgz
 #RUN cd /lib/skyEye/ && wget https://s3.cn-north-1.amazonaws.com.cn/tianyan/kafka_2.11-0.9.0.0.tgz
 #RUN cd /lib/skyEye/ && wget https://s3.cn-north-1.amazonaws.com.cn/tianyan/skyEye.zip
-RUN unzip /lib/skyEye/skyEye.zip
-RUN tar -xf /lib/skyEye/kafka_2.11-0.9.0.0.tgz
+RUN cd /lib/skyEye && unzip skyEye.zip
+RUN cd  /lib/skyEye && tar -xf kafka_2.11-0.9.0.0.tgz
 COPY ENV.sh /ENV.sh
 RUN chmod +x /ENV.sh
 COPY run-HBase.sh /lib/skyEye/AV-HBase-thrift-S/run-HBase.sh
