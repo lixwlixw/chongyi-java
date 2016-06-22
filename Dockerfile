@@ -14,4 +14,6 @@ RUN chmod +x /ENV.sh
 COPY run-HBase.sh /lib/skyEye/AV-HBase-thrift-S/run-HBase.sh
 COPY run-MASTER.sh /lib/skyEye/AV-Master/run-MASTER.sh
 COPY run-SDK.sh /lib/skyEye/AV-SDK-Thrift/run-SDK.sh
+COPY start.sh start.sh
 ENTRYPOINT ["/ENV.sh"]
+CMD ["/bin/bash", "start.sh"]
