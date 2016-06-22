@@ -1,14 +1,21 @@
 #!/bin/bash
 set -e
 #if [ -z "MYSQLBSI" ]; then
-    eval dbuser=\$BSI_${MYSQLBSI}_USERNAME
-    eval dbpass=\$BSI_${MYSQLBSI}_PASSWORD
-    eval hostname=\$BSI_${MYSQLBSI}_HOST 
-    eval dbport=\$BSI_${MYSQLBSI}_PORT
-    eval dbname=\$BSI_${MYSQLBSI}_NAME
+    eval zkhost=\$BSI_ZOOKEEPER_ZK_HOST
+    eval kahost=\$BSI_KAFKA_KAFKA_HOST
+    eval tyuri=\$TY_MYSQL_URI 
+    eval tyuser=\$TY_MYSQL_USER
+    eval typass=\$TY_MYSQL_PASS
     
-    sed -i 's/#hostname#/'$hostname'/g' /usr/local/tomcat/webapps/SkyEyes/WEB-INF/classes/springmvc-servlet.xml
-    sed -i 's/#dbuser#/'$dbuser'/g' /usr/local/tomcat/webapps/SkyEyes/WEB-INF/classes/springmvc-servlet.xml
-    sed -i 's/#dbpass#/'$dbpass'/g' /usr/local/tomcat/webapps/SkyEyes/WEB-INF/classes/springmvc-servlet.xml
-    sed -i 's/#dbport#/'$dbport'/g' /usr/local/tomcat/webapps/SkyEyes/WEB-INF/classes/springmvc-servlet.xml
-    sed -i 's/#dbname#/'$dbname'/g' /usr/local/tomcat/webapps/SkyEyes/WEB-INF/classes/springmvc-servlet.xml
+    sed -i 's/10.191.116.75/'$zkhost'/g' /lib/skyEye/AV-Master/conf/AV.cfg
+    sed -i 's/10.191.17.1:3306\/skyeyes/'$tyuri'/g' /lib/skyEye/AV-Master/conf/AV.cfg
+    sed -i 's/bigdata/'$tyuser'/g' /lib/skyEye/AV-Master/conf/AV.cfg
+    sed -i 's/Bduser2015#/'$typass'/g' /lib/skyEye/AV-Master/conf/AV.cfg
+    sed -i 's/10.191.116.75/'$zkhost'/g' /lib/skyEye/AV-SDK-Thrift/conf/AV.cfg
+    sed -i 's/10.191.116.75:9092,10.191.116.76:9092/'$kahost'/g' /lib/skyEye/AV-SDK-Thrift/conf/AV.cfg
+    sed -i 's/10.1.0.21/127.0.0.1/g' /lib/skyEye/AV-Master/conf/sky-site.xml
+    sed -i 's/10.1.0.21/127.0.0.1/g' /lib/skyEye/AV-HBase-thrift-S/conf/sky-site.xml
+    bash /lib/skyEye/AV-SDK-Thrift/run-SDK.sh
+    bash /lib/skyEye/AV-Master/run-MASTER.sh
+    bash /lib/skyEye/AV-HBase-thrift-S/run-HBase.sh
+    
