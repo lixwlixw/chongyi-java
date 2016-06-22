@@ -1,5 +1,6 @@
 #FROM registry.dataos.io/library/java:7-jdk
 FROM registry.dataos.io/library/hbase-cdh5:latest
+RUN yum -y install unzip
 RUN mkdir /lib/skyEye/
 WORKDIR /lib/skyEye/
 ADD skyEye.zip /lib/skyEye/
