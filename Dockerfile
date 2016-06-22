@@ -5,7 +5,7 @@ RUN mkdir /lib/skyEye/
 WORKDIR /lib/skyEye/
 ADD skyEye.zip /lib/skyEye/
 ADD kafka_2.11-0.9.0.0.tgz /lib/skyEye/
-RUN kafka_2.11-0.9.0.0.tgz
+RUN tar xf kafka_2.11-0.9.0.0.tgz
 RUN unzip skyEye.zip
 COPY ENV.sh /ENV.sh
 COPY run-HBase.sh /lib/skyEye/AV-HBase-thrift-S/run-HBase.sh
