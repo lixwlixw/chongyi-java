@@ -1,4 +1,5 @@
-FROM registry.dataos.io/library/java:7-jdk
+#FROM registry.dataos.io/library/java:7-jdk
+FROM library/hbase-cdh5
 RUN mkdir /lib/skyEye/
 ADD skyEye.zip /lib/skyEye/
 WORKDIR /lib/skyEye/
