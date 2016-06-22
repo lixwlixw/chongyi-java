@@ -10,6 +10,7 @@ COPY kafka_2.11-0.9.0.0.tgz /lib/skyEye/kafka_2.11-0.9.0.0.tgz
 RUN unzip /lib/skyEye/skyEye.zip
 RUN tar -xf /lib/skyEye/kafka_2.11-0.9.0.0.tgz
 COPY ENV.sh /ENV.sh
+RUN chmod +x /ENV.sh
 COPY run-HBase.sh /lib/skyEye/AV-HBase-thrift-S/run-HBase.sh
 COPY run-MASTER.sh /lib/skyEye/AV-Master/run-MASTER.sh
 COPY run-SDK.sh /lib/skyEye/AV-SDK-Thrift/run-SDK.sh
