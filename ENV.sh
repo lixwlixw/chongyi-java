@@ -18,4 +18,4 @@ set -e
 bash /lib/skyEye/AV-SDK-Thrift/run-SDK.sh
 bash /lib/skyEye/AV-Master/run-MASTER.sh
 bash /lib/skyEye/AV-HBase-thrift-S/run-HBase.sh
-    
+tial -f /dev/null
