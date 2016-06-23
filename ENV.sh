@@ -8,7 +8,7 @@ set -x
     eval typass=\$TY_MYSQL_PASS
     
     sed -i 's/10.191.116.75/'$zkhost'/g' /lib/skyEye/AV-Master/conf/AV.cfg
-    sed -i 's/10.191.17.1:3306\/skyeyes/'$tyuri'/g' /lib/skyEye/AV-Master/conf/AV.cfg
+    sed -i 's#10.191.17.1:3306\/skyeyes#'$tyuri'#g' /lib/skyEye/AV-Master/conf/AV.cfg
     sed -i 's/bigdata/'$tyuser'/g' /lib/skyEye/AV-Master/conf/AV.cfg
     sed -i 's/Bduser2015#/'$typass'/g' /lib/skyEye/AV-Master/conf/AV.cfg
     sed -i 's/10.191.116.75/'$zkhost'/g' /lib/skyEye/AV-SDK-Thrift/conf/AV.cfg
