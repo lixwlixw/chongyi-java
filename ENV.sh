@@ -12,7 +12,7 @@ set -e
     sed -i 's/bigdata/'$tyuser'/g' /lib/skyEye/AV-Master/conf/AV.cfg
     sed -i 's/Bduser2015#/'$typass'/g' /lib/skyEye/AV-Master/conf/AV.cfg
     sed -i 's/10.191.116.75/'$zkhost'/g' /lib/skyEye/AV-SDK-Thrift/conf/AV.cfg
-    sed -i 's/meta.*/metadata.broker.list=$kahost:9092/g' /lib/skyEye/AV-SDK-Thrift/conf/AV.cfg
+    sed -i "s/meta.*/metadata.broker.list=$kahost:9092/g" /lib/skyEye/AV-SDK-Thrift/conf/AV.cfg
     sed -i 's/10.1.0.21/127.0.0.1/g' /lib/skyEye/AV-Master/conf/sky-site.xml
     sed -i 's/10.1.0.21/127.0.0.1/g' /lib/skyEye/AV-HBase-thrift-S/conf/sky-site.xml
 bash /lib/skyEye/AV-SDK-Thrift/run-SDK.sh
