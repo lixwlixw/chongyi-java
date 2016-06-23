@@ -15,9 +15,9 @@ set -x
     sed -i "s/meta.*/metadata.broker.list=$kahost:9092/g" /lib/skyEye/AV-SDK-Thrift/conf/AV.cfg
     sed -i 's/10.1.0.21/127.0.0.1/g' /lib/skyEye/AV-Master/conf/sky-site.xml
     sed -i 's/10.1.0.21/127.0.0.1/g' /lib/skyEye/AV-HBase-thrift-S/conf/sky-site.xml
-bash /lib/skyEye/AV-SDK-Thrift/run-SDK.sh
-bash /lib/skyEye/AV-Master/run-MASTER.sh
-bash /lib/skyEye/AV-HBase-thrift-S/run-HBase.sh
+cd /lib/skyEye/AV-SDK-Thrift/ && bash run-SDK.sh
+cd /lib/skyEye/AV-Master/ && bash run-MASTER.sh
+cd /lib/skyEye/AV-HBase-thrift-S/ && bash run-HBase.sh
 service hadoop-hdfs-datanode start
 service hadoop-hdfs-namenode start 
 
