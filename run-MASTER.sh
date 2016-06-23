@@ -28,3 +28,4 @@ done
 #echo CLASSPATH=$CLASSPATH
 
 java -cp  $LIB:AV-Master.jar com.main.AV_Master >>1.log 2>&1 &
+echo "Master OK..."
