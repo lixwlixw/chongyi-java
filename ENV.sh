@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -x
 #if [ -z "MYSQLBSI" ]; then
     eval zkhost=\$BSI_ZOOKEEPER_ZK_HOST
     eval kahost=\$BSI_KAFKA_KAFKA_HOST
