@@ -22,3 +22,4 @@ done
 #echo CLASSPATH=$CLASSPATH
 
 java -cp  $LIB:AV-HBase-thrift-S.jar com.main.AV_HBase_Thrift_S >>1.log 2>&1 &
+echo "HBase OK..."
